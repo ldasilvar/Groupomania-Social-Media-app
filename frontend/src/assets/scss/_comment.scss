@@ -1,0 +1,34 @@
+.comment-article {
+    margin-top: 8px;
+    background-color: #F9F9F9;
+    border-radius: 5px;
+    width: 100%;
+    padding: 16px 12px;
+    display: flex;
+
+    .user-comment {
+        color: #3A4B67;
+        font-weight: bolder;
+        margin-right: 10px;
+        display: flex;
+    }
+
+    li {
+        margin-right: 6px;
+    }
+}
+
+.input-comment {
+    width: 500px;
+    border: none;
+    background-color: #F9F9F9;
+    outline: none;
+}
+
+.comment-plus {
+    margin-left: 10px;
+
+    &:hover {
+        color:#D1505A;
+    }
+}

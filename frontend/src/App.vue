@@ -1,63 +1,38 @@
 <template>
-
-  
   <div id="app">
+      <router-view></router-view>
 
-   <headers/>
-    
-   <section class="Homepage-info">
-    <h1> Welcome to Groupomania's social network, <br> a place where we can all get to know each other a little better</h1>
+  <footer class="footer">
+    <div class="social-icons">
+                <ul>
+                    <li><a href="www.gmail.com"><i class="fa fa-google"></i></a></li>
+                    <li><a href="facebook.com"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="twitter.com"><i class="fa fa-twitter"></i></a></li>
+                </ul>
 
-   </section>
-
-   <router-view></router-view>
-<footer class="footer">
-
-  <footers/>
-
+<p>  © Groupomania 2022 </p> 
+    </div>
 </footer>
-
   </div>
-  
 </template>
 
 <script>
-import headers from "./components/headers.vue";
-import footers from "./components/footers.vue";
-export default {
-  name:"app",
-  components: {
-    headers,
-    footers,
-
-  }
-
-
-
-}
-
-
-
-
+export default {}
 </script>
+
 <style lang="scss">
+@import './assets/scss/style.css';
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  
-
-  background:linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), ("./assets/Images/icon-left-font-monochrome-black.png") no-repeat center center fixed; ;
-
- 
+  color: #333;
+  margin-top: 60px;
 }
 .footer{
-  width: 100%;
-height: 28px;
-border-top: 2px solid #E0E0E0;
-position: absolute;
+
+width: 100%;
+border-top: 3px solid #E0E0E0;
 bottom: 0px; 
 left: 0px; 
 text-align: center; 
@@ -67,8 +42,9 @@ text-align: center;
     font-weight: 500;
     line-height: 1.2;
  }
-  
+ .footer ul li{
 
-
-
+  display: inline-block;
+  padding:1em 3em;
+ }
 </style>

@@ -1,0 +1,108 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid #E5E5E5;
+    position: relative;
+
+    .logo {
+        width: 150px;
+        height: 150px;
+        position: absolute;
+        top: -101px;
+        margin-left: 24px;
+    } 
+}
+
+.list-navbar {
+    display: inline;
+    margin-right: 36px;
+    font-size: 20px;
+}
+
+.list {
+    display: flex;
+    position: absolute;
+    right: 16px;
+    top: -42px;
+}
+
+.avatar {
+    width: 30px;
+    height: 30px;
+    position: relative;
+
+    &:hover {
+        border: 2px solid #001a8d;
+        border-radius: 50%;
+    }
+}
+
+.dropdown {
+    display: inline-block;
+}
+
+.list-login-signup {
+    border: 1px solid black;
+    background-color: rgb(228, 228, 228);
+    color: #2D3E5D;
+    font-weight: bold;
+    position: absolute;
+    right: -15px;
+    top: 32px;
+    display: none;
+    outline: none;
+    padding: 0px 6px;
+}
+
+.dropdown:hover .list-login-signup {
+    display: inline;
+}
+
+
+.hover-login{
+letter-spacing: 0;
+}
+
+.hover-login:hover,
+.hover-login:active {
+  letter-spacing: 5px;
+}
+
+.hover-login:after,
+.hover-login:before {
+  backface-visibility: hidden;
+  border: 1px solid rgba(#fff, 0);
+  bottom: 0px;
+  content: " ";
+  margin: 0 auto;
+  position: relative;
+  transition: all 280ms ease-in-out;
+  width: 0;
+}
+
+.hover-login:hover:after,
+.hover-login:hover:before {
+  backface-visibility: hidden;
+  border-color: #fff;
+  transition: width 350ms ease-in-out;
+  width: 70%;
+}
+
+.hover-login:hover:before {
+  bottom: auto;
+  top: 0;
+  width: 70%;
+}
+.hover-login:hover {
+    color:#1326d1;
+   
+}
+
+// .hover-signup:hover {
+//     color:#1326d1;
+// }
+
+// .hover-profil:hover {
+//     color:#1326d1;
+// }
+
