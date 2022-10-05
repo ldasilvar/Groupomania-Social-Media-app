@@ -1,5 +1,6 @@
 *, ::before, ::after {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
@@ -11,8 +12,12 @@ li {
 }
 
 .navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   border-bottom: 2px solid #E5E5E5;
   position: relative;
 }
@@ -31,6 +36,8 @@ li {
 }
 
 .list {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: absolute;
   right: 16px;
@@ -86,6 +93,7 @@ li {
   content: " ";
   margin: 0 auto;
   position: relative;
+  -webkit-transition: all 280ms ease-in-out;
   transition: all 280ms ease-in-out;
   width: 0;
 }
@@ -95,6 +103,7 @@ li {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   border-color: #fff;
+  -webkit-transition: width 350ms ease-in-out;
   transition: width 350ms ease-in-out;
   width: 70%;
 }
@@ -110,22 +119,27 @@ li {
 }
 
 .card-evenement {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-top: 50px;
 }
 .card-evenement p {
   padding: 16px;
-  background-color: #80000b;
+  background-color: rgba(17, 94, 39, 0.6);
   border-radius: 50px;
-  color: rgb(49, 9, 224);
+  color: rgb(40, 9, 224);
   font-weight: bold;
 }
 .card-evenement p:hover {
   color: #001a8d;
-  background-color: rgb(240, 114, 11);
-  border: 1px solid #D1505A;
+  background-color: #009765;
 }
 .card-evenement i {
   margin-left: 22px;
@@ -136,8 +150,13 @@ li {
   margin-top: 50px;
   margin-right: 150px;
   margin-left: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 .card .cards {
   padding: 22px;
@@ -155,6 +174,8 @@ li {
   margin-top: 20px;
 }
 .card .flex-name-user {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 .card .flex-name-user .margin-right-5 {
@@ -196,6 +217,8 @@ li {
 }
 
 .flex-like {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -231,8 +254,12 @@ li {
 }
 
 .card-profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin-top: 50px;
   width: 100%;
 }
@@ -258,8 +285,12 @@ li {
 }
 
 .off-and-basket {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding: 16px;
   font-size: 22px;
 }
@@ -288,10 +319,14 @@ li {
 }
 
 .card-login {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 1300px;
 }
 .card-login form {
   border: 1px solid #A8A8A8;
@@ -347,6 +382,7 @@ li {
   content: " ";
   margin: 0 auto;
   position: relative;
+  -webkit-transition: all 280ms ease-in-out;
   transition: all 280ms ease-in-out;
   width: 0;
   background-color: #d71313;
@@ -357,6 +393,7 @@ li {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   border-color: #fff;
+  -webkit-transition: width 650ms ease-in-out;
   transition: width 650ms ease-in-out;
   width: 70%;
   background-color: #000000;
@@ -384,7 +421,7 @@ li {
 .card-display-article form {
   border: 1px solid #A8A8A8;
   border-radius: 16px;
-  background-color: rgba(236, 236, 236, 0.6);
+  background-color: rgba(17, 94, 39, 0.6);
   padding: 80px 50px;
   left: 327px;
 }
@@ -448,12 +485,16 @@ li {
   border-radius: 5px;
   width: 100%;
   padding: 16px 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 .comment-article .user-comment {
   color: #3A4B67;
   font-weight: bolder;
   margin-right: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 .comment-article li {
@@ -472,4 +513,4 @@ li {
 }
 .comment-plus:hover {
   color: #D1505A;
-}/*# sourceMappingURL=style.css.map */
+}

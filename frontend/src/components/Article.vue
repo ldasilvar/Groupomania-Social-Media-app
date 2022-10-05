@@ -13,7 +13,7 @@
                     </ul> 
                 </div>
                 <div class="dropdown">
-                   <img src="../assets/images/profile.png" alt="photo de profil" class="avatar">
+                   <img src="../assets/images/profile.png" alt="Profile photo" class="avatar">
                    <div name="login-signup" id="login-signup" class="list-login-signup">
                        <router-link style="text-decoration: none; color: inherit" to="/users/myprofile"><li class="hover-profil">Profile</li></router-link>
                    </div>
@@ -42,7 +42,7 @@
             <hr>
             <div class="comment-article form-comment">
                 <div>
-                    <input v-model="content" placeholder="écrire ici" class="input-comment" type="text">
+                    <input v-model="content" placeholder="Write your comment" class="input-comment" type="text">
                     <i @click="addComment" class="fas fa-plus comment-plus"> Post a comment</i>                                     
                 </div>
             </div>
@@ -58,7 +58,7 @@
                     <div>
                       <span id="hover-login" @click="deleteComment(com.id)"><i class="fas fa-trash-alt margin-right-off"></i></span>
                       <span @click="updateComment(com.id, com.content)"><i class="fas fa-edit"></i></span>
-                      <input v-model="com.content" placeholder="Modifier ici" class="input-comment" type="text">            
+                      <input v-model="com.content" placeholder="Edit your comment" class="input-comment" type="text">            
                     </div>
                 </div>                      
             </div>  

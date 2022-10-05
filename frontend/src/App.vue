@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+  
       <router-view></router-view>
 
   <footer class="footer">
@@ -32,11 +33,14 @@ export default {}
 .footer{
 
 width: 100%;
-border-top: 3px solid #E0E0E0;
+border-top: 2px solid #E0E0E0;
 bottom: 0px; 
 left: 0px; 
 text-align: center; 
+ position:fixed;
+ bottom:0;
 }
+
  .footer p{
   font-size: 2rem;
     font-weight: 500;
