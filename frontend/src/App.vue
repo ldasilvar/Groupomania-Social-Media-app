@@ -29,6 +29,9 @@ export default {}
   -moz-osx-font-smoothing: grayscale;
   color: #333;
   margin-top: 60px;
+  input:focus::placeholder {
+  color: transparent;
+}
 }
 .footer{
 
@@ -37,7 +40,7 @@ border-top: 2px solid #E0E0E0;
 bottom: 0px; 
 left: 0px; 
 text-align: center; 
- position:fixed;
+//  position:fixed;
  bottom:0;
 }
 

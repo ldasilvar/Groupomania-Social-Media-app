@@ -27,15 +27,14 @@
                         <li><img src="../assets/images/—Pngtree—vector users icon_4144740.png" alt="Profile Avatar" class="avatar-article"></li>
                         <li class="margin-right-5 font-user">{{article.User.fullname}}</li>
                         
-                    <div>
-                        <i @click="deleteArticle" class="fas fa-trash-alt delete-article-icon"></i>
-                        <router-link style="text-decoration: none; color: inherit" :to="'/articles/edit/'+ article.id"><i class="fas fa-edit edit-article-icon"></i></router-link>
-                    </div>
+    
                 </div>
                 <div class="margin-top-16">
                     <li class="bold-title">{{article.title}}</li>
-                    <li class="margin-top-16">{{article.content}}</li>
                     <li><img :src="article.image" alt="image" class="img-article"></li>
+                    <li class="margin-top-16">{{article.content}}</li>
+                    <i @click="deleteArticle"  class="fas fa-trash-alt delete-article-icon"></i>
+                    <router-link style="text-decoration: none; color: inherit" :to="'/articles/edit/'+ article.id"><i class="fas fa-edit edit-article-icon"></i></router-link>
                     <li class="like font-size-22"><i class="far fa-comment-alt margin-right-comment"> </i><i class="far fa-heart"></i>0</li>
                 </div>
             </div>
@@ -95,14 +94,14 @@ Vue.use(VueAxios, axios)
             Vue.axios.get('http://localhost:3000/api/articles/' + this.$route.params.id + '/comments/')
             .then((data) => {
                 this.comment = data.data
-                console.log("ligne 96", this.comment[0].id);
+                
             })
         }, methods: {
             deleteComment: function(commentId) {
                 Vue.axios.delete('http://localhost:3000/api/comments/' + commentId)
                 .then((data) => {
                     this.comment = data.data
-                    console.log("ligne 126", data)
+                    
 
                     if(data) {
                         window.location.href=`/articles/${this.$route.params.id}`

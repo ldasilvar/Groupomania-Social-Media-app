@@ -1,51 +1,56 @@
-// mongopassword: H758cCT5ZwVm3ZiQ
-// mongodb+srv://ldasilva:<password>@cluster0.fkx6iiz.mongodb.net/?retryWrites=true&w=majority
-
 const express = require('express');
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
-const articleRoutes = require('./routes/article');
-const usersRoutes = require('./routes/users');
-
-//Used for the path of the images
+const userRoute = require('./routes/user').router;
+const articleRoute = require('./routes/article').router;
+const commentRoute = require('./routes/comment').router;
 const path = require('path');
-
-//Puts a cap on the number of actions a user can repeat from the same IP address to protect the website from brute attacks
-const rateLimit = require("./middleware/limit");
 
 const app = express();
 
-//Used to connect to MongoDB with my username and my password
-mongoose.connect('mongodb+srv://ldasilva:H758cCT5ZwVm3ZiQ@cluster0.fkx6iiz.mongodb.net/?retryWrites=true&w=majority')
-.then(()=>{
-  console.log('succesful connection to mongoose');
-  
-})
-.catch((error)=>{
-  console.log('unable to connect to mongoose');
-  console.error(error);
-})
+// sécurité
 
-app.use(rateLimit);
-
-app.use (express.json());
+const session = require('cookie-session');
+const helmet = require('helmet');
 
 
-//Headers for CORS//
+app.use(
+  helmet({
+    crossOriginResourcePolicy: false,
+  }));
+app.use(helmet.frameguard({ action: 'deny' }));
+
+const expiryDate = new Date( Date.now() + 60 * 60 * 1000 ); // 1 hour
+app.use(session({
+  name: 'session',
+  keys: ['key1', 'key2'],
+  cookie: { secure: true,
+            httpOnly: true,
+            path: '/api/auth',
+            expires: expiryDate
+          }
+  })
+);
+
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
     next();
-  });
-
-  app.use(bodyParser.json());
-
-  app.use('/images', express.static(path.join(__dirname, 'images')));
-
-  app.use('/api/articles', articleRoutes);
-  app.use('/api/auth', usersRoutes);
+});
 
 
+
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+
+app.use((req, res, next) => {
+    res.status(200);
+    next();
+})
+
+app.use('/images', express.static(path.join(__dirname, 'images')));
+
+app.use('/api/auth/', userRoute);
+app.use('/api/articles/', articleRoute, commentRoute);
+app.use('/api/comments/', commentRoute);
 
 module.exports = app;

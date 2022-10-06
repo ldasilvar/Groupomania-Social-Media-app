@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="home">
   
   </div>
@@ -14,4 +14,4 @@ export default {
     headers
   }
 }
-</script>
+</script> -->

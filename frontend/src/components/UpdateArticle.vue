@@ -29,6 +29,9 @@
                 <div>
                     <input v-model="article.content" class="form-title-content" id="content" type="text" name="contenu" placeholder="New content" required>  
                 </div>
+                <div>
+                    <input type="file" crossorigin="anonymous" ref="files" id="image" name="inputImage" @change="selectedImageFile">                    
+                </div>
                 <div class="button-form">
                     <input @click="updateArticle" class="button" type="button" value="Update">
                 </div>  

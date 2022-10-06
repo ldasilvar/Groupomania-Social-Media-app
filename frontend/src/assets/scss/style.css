@@ -147,9 +147,9 @@ li {
 }
 
 .card {
-  margin-top: 50px;
-  margin-right: 150px;
-  margin-left: 150px;
+  margin-top: 5%;
+  margin-right: 20%;
+  margin-left: 20%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -169,9 +169,9 @@ li {
   border: 1px solid #D14F5A;
 }
 .card .img-article {
-  border-radius: 16px;
-  width: 30%;
-  margin-top: 20px;
+  width: 15%;
+  margin-left: 42%;
+  margin-top: 5%;
 }
 .card .flex-name-user {
   display: -webkit-box;
@@ -196,15 +196,18 @@ li {
 .edit-article-icon {
   font-size: 26px;
   color: #2D3F5D;
-  position: absolute;
-  right: 172px;
+  position: relative;
+  padding: 10px;
+  margin-left: 50px;
+  margin-top: 50px;
 }
 
 .delete-article-icon {
   font-size: 26px;
   color: #2D3F5D;
   position: absolute;
-  right: 218px;
+  padding: 10px;
+  margin-top: 50px;
 }
 
 .margin-top-16 {
@@ -214,6 +217,7 @@ li {
 .bold-title {
   font-weight: bold;
   color: #333;
+  margin-left: 44%;
 }
 
 .flex-like {
@@ -415,15 +419,14 @@ li {
 }
 
 .card-display-article {
-  margin: 50px 50px;
+  margin: 3% 25%;
   padding: 30px 30px;
 }
 .card-display-article form {
   border: 1px solid #A8A8A8;
-  border-radius: 16px;
+  border-radius: 22px;
   background-color: rgba(17, 94, 39, 0.6);
   padding: 80px 50px;
-  left: 327px;
 }
 .card-display-article .button-form {
   margin-top: 16px;
@@ -434,12 +437,28 @@ li {
   font-style: italic;
   padding: 10px;
   margin: 8px;
-  width: 100%;
+  width: 60%;
+  border: none;
+  border-radius: 8pt;
+  -webkit-box-shadow: 0 0 0 1.5pt grey;
+          box-shadow: 0 0 0 1.5pt grey;
   outline: none;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
 }
 
 #content {
-  height: 150px;
+  height: 175px;
+  width: 80%;
+  margin: 24px 17px;
+  border: none;
+  border-radius: 8pt;
+  -webkit-box-shadow: 0 0 0 1.5pt grey;
+          box-shadow: 0 0 0 1.5pt grey;
+  outline: none;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+  padding: 14px;
 }
 
 .add-image {
@@ -481,10 +500,11 @@ li {
 
 .comment-article {
   margin-top: 8px;
+  margin-bottom: 100px;
   background-color: #F9F9F9;
   border-radius: 5px;
   width: 100%;
-  padding: 16px 12px;
+  padding: 26px 12px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

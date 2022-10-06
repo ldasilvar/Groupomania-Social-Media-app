@@ -2,7 +2,7 @@
     <div class="container">
         <div class="navbar">
             <div>
-               <img src="../assets/images/icon-left-font-monochrome-black.png" alt="groupomania" class="logo">
+                <router-link to="/articles"><img src="../assets/images/icon-left-font-monochrome-black.png" alt="groupomania" class="logo"></router-link>
             </div>
             <div class="list">
                 <div>
@@ -22,7 +22,7 @@
         </div>
 
         <div class="card-evenement">
-            <router-link to="/new" style="text-decoration: none; color: inherit"><p>Poster un article</p></router-link>
+            <router-link to="/new" style="text-decoration: none; color: inherit"><p>Make a new post</p></router-link>
             <i class="fas fa-filter"></i>
         </div> 
         
@@ -39,8 +39,8 @@
                                 </div>
                                 <div class="margin-top-16">
                                     <li class="bold-title">{{item.title}}</li>
-                                    <li class="margin-top-16">{{item.content}}</li>
                                     <li><img :src="item.image" alt="image" class="img-article"></li>
+                                    <li class="margin-top-16">{{item.content}}</li>
                                     <li class="like font-size-22"><i class="far fa-heart like-hover"></i>{{item.likes}}</li>
                                 </div>
                                 <hr>

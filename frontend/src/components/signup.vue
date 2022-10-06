@@ -144,7 +144,7 @@ Vue.use(VueAxios, axios)
                 return regexPassword.test(password);
             },
             validfullname: function(fullname) {
-                const regexfullname = /^[A-Z][A-Za-zéèê-]+$/;
+                const regexfullname = /^(?!.*[!@#$%])\s*[A-Za-z0-9_-][A-Za-z0-9 _-]*$/;
                 return regexfullname.test(fullname);
             },
            

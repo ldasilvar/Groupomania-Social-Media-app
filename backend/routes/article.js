@@ -1,16 +1,17 @@
 const express = require('express');
-const router = express.Router();
-const auth = require('../middleware/auth');
-const multer = require('../middleware/multer-config');
-const stuffCtrl = require('../controllers/article');
 
-router.get('/', auth, stuffCtrl.getAllArticles );
-router.post('/', auth, multer, stuffCtrl.addArticle );
-router.get('/:id', auth, stuffCtrl.getOneArticle );
-router.put('/:id', auth, multer, stuffCtrl.modifyArticle );
-router.delete('/:id', auth, stuffCtrl.deleteArticle);
-// router.post('/:id/like', auth, stuffCtrl.likeSauce);
+const articleController = require('../controllers/article');
+const auth = require('../middleware/auth.js');
+const multer = require('../middleware/multer-config.js');
 
+exports.router = (function() {
+    const Router = express.Router();
 
+    Router.get('/', auth, articleController.getAllArticles);
+    Router.get('/:id/', auth, articleController.getArticleById);
+    Router.post('/new/', auth, multer, articleController.createArticle);
+    Router.put('/edit/:id/', auth, articleController.UpdateArticle);
+    Router.delete('/:id/', auth, articleController.deleteArticle);
 
-module.exports = router;
+    return Router;
+})();

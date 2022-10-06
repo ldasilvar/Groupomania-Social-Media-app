@@ -43,9 +43,7 @@
                 <div class="card-info-user">
                     <p>{{user.email}}</p>
                 </div>
-                <div class="card-info-user">
-                    <p>{{user.post}}</p>
-                </div>
+                
                 
             </div>
         </div>

@@ -23,14 +23,15 @@
 
         <div class="card-display-article"> 
             <form action="http://localhost:3000/api/articles/new" method="post">
-                <div>
-                    <input type="file" ref="files" id="image" name="inputImage" @change="selectedImageFile">                    
-                </div>
+                
                 <div>
                     <input v-model="title" class="form-title-content" type="text" id="titre" name="titre" placeholder="Title" required>  
                 </div>
                 <div>
                     <input v-model="content" lass="form-title-content" id="content" type="text" name="contenu" placeholder="Write your post here" required>  
+                </div>
+                <div>
+                    <input type="file" crossorigin="anonymous" ref="files" id="image" name="inputImage" @change="selectedImageFile">                    
                 </div>
                 <div class="button-form">
                     <input @click="createArticle" class="button" type="button" value="Post">

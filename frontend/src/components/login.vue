@@ -71,7 +71,7 @@ Vue.use(VueAxios, axios)
                     // console.log(token);
 
                     if(response) {
-                        alert('Vous êtes connecté !');
+                        alert('Login Succesful');
                     }
 
                     if(token != null) {
