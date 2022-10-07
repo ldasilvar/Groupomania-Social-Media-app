@@ -75,7 +75,8 @@ Vue.use(VueAxios, axios)
                 console.log(this.$route.params.id)
                 Vue.axios.put(`http://localhost:3000/api/articles/edit/`+ this.$route.params.id, {
                     title: this.article.title,
-                    content: this.article.content
+                    content: this.article.content,
+                    image: this.article.image
                 })
                 .then((response) => {
                     console.log(response)

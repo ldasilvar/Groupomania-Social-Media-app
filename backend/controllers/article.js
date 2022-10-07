@@ -102,7 +102,10 @@ const UpdateArticle = async(req, res) => {
         if(userId === article.UserId) {
             const updatedArticle = await article.update({
                 title: req.body.title,
-                content: req.body.content
+                content: req.body.content,
+                image: req.body.image
+            
+
             }, {
                 where: { id: req.body.id }
             });
