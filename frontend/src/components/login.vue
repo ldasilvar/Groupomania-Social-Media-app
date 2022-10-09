@@ -12,18 +12,13 @@
                         <li class='list-navbar'><router-link style="text-decoration: none; display: none; color: inherit" to="/"><span class="hover-login" @click="logoutUser"><i class="fas fa-power-off"></i></span></router-link></li>
                     </ul> 
                 </div>
-                <div class="dropdown">
-                   <img src="../assets/images/profile.png" alt="Profile Avatar" class="avatar">
-                   <div name="login-signup" id="login-signup" class="list-login-signup">
-                       <router-link style="text-decoration: none; color: inherit" to="/users/myprofile"><li class="hover-profil">Profile</li></router-link>
-                   </div>
-                </div>
+                
             </div>
         </div>
 
         <div class="card-login">
             <form method="post" action="http://localhost:3000/api/auth/users/login">
-                <img src="../assets/images/icon-left-font-monochrome-black.png" alt="">
+                <img src="../assets/images/icon-left-font-monochrome-black.png" alt="logo">
                 <div>
                     <input v-model="email" class="form-email-password"  type="text" id="email" name="email" placeholder="Enter your email" required>
                 </div>

@@ -5,25 +5,37 @@
                 <router-link to="/articles"><img src="../assets/images/icon-left-font-monochrome-black.png" alt="groupomania" class="logo"></router-link>
             </div>
             <div class="list">
-                <div>
-                   <ul>
-                        <li class='list-navbar hover-login'><router-link style="text-decoration: none; color: inherit" to="/users/signup">Sign Up</router-link></li>
-                        <li class="list-navbar hover-login"><router-link style="text-decoration: none; color: inherit" to="/">Login</router-link></li>
-                        <li class='list-navbar'><router-link style="text-decoration: none; color: inherit" to="/"><span class="hover-login" @click="logoutUser"><i class="fas fa-power-off"></i></span></router-link></li>
-                    </ul> 
-                </div>
                 <div class="dropdown">
                    <img src="../assets/images/profile.png" alt="Profile Avatar" class="avatar">
                    <div name="login-signup" id="login-signup" class="list-login-signup">
                        <router-link style="text-decoration: none; color: inherit" to="/users/myprofile"><li class="hover-profil">Profile</li></router-link>
                    </div>
                 </div>
+                <div>
+                   <ul>
+                        
+                        <li class='list-navbar'><router-link style="text-decoration: none; color: inherit" to="/"><span class="hover-login" @click="logoutUser">Sign out <i class="fa-solid fa-right-from-bracket"></i></span></router-link></li>
+                    </ul> 
+                </div>
+                
             </div>
         </div>
 
+
+        <!-- <div>
+            <tr v-for="loginUser.fullname in list" v-bind:key="User.fullname.id">
+            
+                <h1>
+                    Welcome back {{User.fullname}}
+                </h1>
+            </tr>
+
+        </div> -->
+    
+
         <div class="card-evenement">
             <router-link to="/new" style="text-decoration: none; color: inherit"><p>Make a new post</p></router-link>
-            <i class="fas fa-filter"></i>
+            
         </div> 
         
         <div class="card">
@@ -33,7 +45,7 @@
                         <div class="cards">
                             <ul>
                                 <div class="flex-name-user">
-                                    <li><img src="../assets/images/—Pngtree—vector users icon_4144740.png" alt="avatar" class="avatar-article"></li>
+                                    <li><img src="../assets/images/profile.png" alt="avatar" class="avatar-article"></li>
                                     <li class="margin-right-5 font-user">{{item.User.fullname}}</li>
                                     
                                 </div>

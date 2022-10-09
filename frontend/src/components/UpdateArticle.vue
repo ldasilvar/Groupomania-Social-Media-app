@@ -5,29 +5,29 @@
                <router-link to="/articles"><img src="../assets/images/icon-left-font-monochrome-black.png" alt="groupomania" class="logo"></router-link>
             </div>
             <div class="list">
-                <div>
-                   <ul>
-                        <li class='list-navbar hover-login'><router-link style="text-decoration: none; color: inherit" to="/users/signup">Sign Up</router-link></li>
-                        <li class="list-navbar hover-login"><router-link style="text-decoration: none; color: inherit" to="/">Login</router-link></li>
-                        <li class='list-navbar'><router-link style="text-decoration: none; color: inherit" to="/"><span class="hover-login" @click="logoutUser"><i class="fas fa-power-off"></i></span></router-link></li>
-                    </ul> 
-                </div>
                 <div class="dropdown">
                    <img src="../assets/images/profile.png" alt="Profile Avatar" class="avatar">
                    <div name="login-signup" id="login-signup" class="list-login-signup">
                        <router-link style="text-decoration: none; color: inherit" to="/users/myprofile"><li class="hover-profil">Profile</li></router-link>
                    </div>
                 </div>
+                <div>
+                   <ul>
+                        
+                        <li class='list-navbar'><router-link style="text-decoration: none; color: inherit" to="/"><span class="hover-login" @click="logoutUser">Sign out <i class="fa-solid fa-right-from-bracket"></i></span></router-link></li>
+                    </ul> 
+                </div>
+               
             </div>
         </div>
 
         <div class="card-display-article"> 
             <form method="put">
                 <div>
-                    <input v-model="article.title" class="form-title-content" type="text" id="titre" name="titre" placeholder="New Title" required>  
+                    <input v-model="article.title" class="form-title-content" type="text" id="title" name="title" placeholder="New Title" required>  
                 </div>
                 <div>
-                    <input v-model="article.content" class="form-title-content" id="content" type="text" name="contenu" placeholder="New content" required>  
+                    <input v-model="article.content" class="form-title-content" id="content" type="text" name="content" placeholder="New content" required>  
                 </div>
                 <div>
                     <input type="file" crossorigin="anonymous" ref="files" id="image" name="inputImage" @change="selectedImageFile">                    
@@ -52,7 +52,8 @@ Vue.use(VueAxios, axios)
             return {
                 article: null,
                 title: "",
-                content: ""
+                content: "",
+                image:""
             }
         }, mounted()
         {
@@ -69,18 +70,18 @@ Vue.use(VueAxios, axios)
         methods: {
             updateArticle: function() {
                 Vue.axios.defaults.headers = {
-                    'Content-Type' : 'application/json',
+                    "Content-Type": "multipart/form-data",
                     Authorization: "Bearer " + localStorage.getItem('userToken')
                 }
                 console.log(this.$route.params.id)
+                // let imageUrl = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`;
                 Vue.axios.put(`http://localhost:3000/api/articles/edit/`+ this.$route.params.id, {
                     title: this.article.title,
                     content: this.article.content,
-                    image: this.article.image
+                    image: this.article.image,
                 })
                 .then((response) => {
-                    console.log(response)
-                    console.log(this.article.title, this.article.content, this.image)
+                   
 
                     if(response) {
                         window.location.href=`/articles`;
@@ -88,6 +89,15 @@ Vue.use(VueAxios, axios)
                 })
 
 
+            },
+            logoutUser: function() {
+                localStorage.removeItem('userToken');
+                localStorage.removeItem('userId');
+                delete axios.defaults.headers.common['Authorization'];
+            },
+            selectedImageFile: function(e) {
+                this.image = e.target.files[0];
+                console.log(this.image);
             }
         }
     }

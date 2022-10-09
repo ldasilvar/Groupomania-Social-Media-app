@@ -4,6 +4,7 @@ const User = db.User;
 const jwtUtils= require('../utils/jwt.utils');
 const fs = require("fs");
 
+
 const getAllArticles = async (req, res) => {  
     try {
         const fields = req.body.fields;
@@ -94,16 +95,18 @@ const UpdateArticle = async(req, res) => {
     try {
         const userId = jwtUtils.getUserId(req.headers.authorization);
         const articleId = req.params.id;
+        let imageUrl = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`;
         const article = await Article.findOne({
             where: { id: articleId }
         })
         console.log(req.body.image)
 
         if(userId === article.UserId) {
+            
             const updatedArticle = await article.update({
                 title: req.body.title,
                 content: req.body.content,
-                image: req.body.image
+                image: imageUrl, 
             
 
             }, {
@@ -119,6 +122,47 @@ const UpdateArticle = async(req, res) => {
         return res.status(500).send(error.message);
     }
 };
+
+
+// exports.UpdateArticle = (req, res, next) => {
+//     let article = new Article({ _id: req.params.id });
+//     if (req.file) {
+//       req.body.article = JSON.parse(req.body.article);
+//       const url = req.protocol + '://' + req.get('host');
+//       article = {
+//         _id: req.params.id,
+//         userId: req.body.article.userId,
+//         title: req.body.title,
+        
+//         imageUrl: url + '/images/' + req.file.filename,
+        
+//       };			
+//     } else {
+//           sauce = {
+//             _id: req.params.id,
+//             userId: req.body.userId,
+//             title: req.body.title,
+//             content: req.body.content,
+//             imageUrl: req.body.imageUrl,
+            		
+//           };	
+//         }
+//           Article.updateOne({_id: req.params.id}, article).then(
+//               () => {
+//                 res.status(201).json({
+//                 message: 'Sauce updated successfully!'
+//               });
+//             }
+//           ).catch(
+//             (error) => {
+//               res.status(400).json({
+//                 error: error
+//               });
+//             }
+//           );
+//         }
+
+
 
 const deleteArticle = async (req, res) => {
     try {

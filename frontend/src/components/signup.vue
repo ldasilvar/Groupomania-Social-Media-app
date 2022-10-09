@@ -12,12 +12,7 @@
                         <li class='list-navbar'><router-link style="text-decoration: none; display: none; color: inherit" to="/"><span class="hover-login" @click="logoutUser"><i class="fas fa-power-off"></i></span></router-link></li>
                     </ul> 
                 </div>
-                <div class="dropdown">
-                   <img src="../assets/images/profile.png" alt="Profile avatar" class="avatar">
-                   <div name="login-signup" id="login-signup" class="list-login-signup">
-                       <router-link style="text-decoration: none; color: inherit" to="/users/myprofile"><li class="hover-profil">Profile</li></router-link>
-                   </div>
-                </div>
+               
             </div>
         </div>
 

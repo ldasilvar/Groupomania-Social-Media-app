@@ -1,11 +1,12 @@
 .comment-article {
     margin-top: 8px;
-    margin-bottom: 100px;
+    margin-bottom: 27px;
     background-color: #F9F9F9;
-    border-radius: 5px;
+    border-radius: 16px;
     width: 100%;
     padding: 26px 12px;
     display: flex;
+    flex-direction: column;
 
     .user-comment {
         color: #3A4B67;
@@ -13,23 +14,32 @@
         margin-right: 10px;
         display: flex;
     }
-
+    
     li {
         margin-right: 6px;
+        padding-bottom: 10px;
     }
 }
 
 .input-comment {
-    width: 500px;
+    width: 90%;
     border: none;
     background-color: #F9F9F9;
     outline: none;
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-bottom: 8px;
 }
+
+
+
 
 .comment-plus {
     margin-left: 10px;
+    padding-top: 15px;
 
     &:hover {
-        color:#D1505A;
+        color:#009765;
+        cursor: pointer;
     }
 }

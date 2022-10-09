@@ -43,7 +43,7 @@
         margin-bottom: 30px;
 
         &:hover {
-            border: 1px solid #D14F5A;
+            border: 1px solid #009765;
         }
     }
 
@@ -52,6 +52,7 @@
         width: 15%;
         margin-left: 42%;
         margin-top: 5%;
+        padding-bottom: 10px;
     }
 
     .flex-name-user {
@@ -66,6 +67,7 @@
             width: 50px;
             height: 50px;
             margin-right: 16px;
+            bottom: 4px;
         }
 
         .font-user {
@@ -89,18 +91,19 @@
     color: #2D3F5D;
     position: relative;
     padding: 10px;
-    margin-left: 50px;
+    margin-left: 10px;
     margin-top: 50px;
-    // left: 150px;
+    
    
 }
 
 .delete-article-icon {
     font-size: 26px;
     color: #2D3F5D;
-    position: absolute;
+    position: relative;
     padding: 10px;
     margin-top: 50px;
+    cursor: pointer;
 }
 
 .margin-top-16 {
@@ -156,6 +159,7 @@
     justify-content: center;
     margin-top: 50px;
     width: 100%;
+    margin-bottom: 14%;
 }
 
 .user-profile {
@@ -218,8 +222,8 @@
 .card-login {
     display: flex;
     justify-content: center;
-    margin-top: 50px;
-    margin-bottom: 1300px;
+    margin-top: 90px;
+    margin-bottom: 300px;
 
     form {
         border: 1px solid #A8A8A8;
@@ -311,14 +315,16 @@
 
 
 .card-display-article {
-    margin: 3% 25%;
+    margin: 4% 30%;
     padding: 30px 30px;
+    margin-bottom: 10%;
 
     form {
         border: 1px solid #A8A8A8;
         border-radius: 22px;
         background-color: rgba(17 94 39 / 60%);
-        padding: 80px 50px;
+        padding: 17px 23px;
+        height: 400px;
         
     }
 
@@ -339,11 +345,12 @@
     box-shadow: 0 0 0 1.5pt grey;
     outline: none;
     transition: .1s;
+    margin-top: 30px;
 }
 
 #content {
-    height: 175px;
-    width: 80%;
+    height: 145px;
+    width: 67%;
     margin: 24px 17px;
     border: none;
     border-radius: 8pt;
@@ -376,3 +383,16 @@
     width: 150px;
 }
 
+.margin-right-off {
+   padding: 10px; 
+   position: relative;
+   cursor: pointer;
+
+}
+#image {
+
+    margin-left: 35px;
+}
+.inputImageButton{
+    width:50%;
+}

@@ -6,19 +6,19 @@
                <router-link to="/articles"><img src="../assets/images/icon-left-font-monochrome-black.png" alt="groupomania" class="logo"></router-link>
             </div>
             <div class="list">
-                <div>
-                   <ul>
-                        <li class='list-navbar hover-login'><router-link style="text-decoration: none; color: inherit" to="/users/signup">Signup</router-link></li>
-                        <li class="list-navbar hover-login"><router-link style="text-decoration: none; color: inherit" to="/">Login</router-link></li>
-                        <li class='list-navbar'><router-link style="text-decoration: none; color: inherit" to="/"><span class="hover-login" @click="logoutUser"><i class="fas fa-power-off"></i></span></router-link></li>
-                    </ul> 
-                </div>
                 <div class="dropdown">
                    <img src="../assets/images/profile.png" alt="Profile Avatar" class="avatar">
                    <div name="login-signup" id="login-signup" class="list-login-signup">
                        <router-link style="text-decoration: none; color: inherit" to="/users/myprofile"><li class="hover-profil">profil</li></router-link>
                    </div>
                 </div>
+                <div>
+                   <ul>
+                        
+                        <li class='list-navbar'><router-link style="text-decoration: none; color: inherit" to="/"><span class="hover-login" @click="logoutUser">Sign out <i class="fa-solid fa-right-from-bracket"></i></span></router-link></li>
+                    </ul> 
+                </div>
+               
             </div>
         </div>
 
@@ -26,10 +26,10 @@
 
         <div class="card-profile">
             <div class="user-profile">
-                <img src="../assets/images/—Pngtree—vector users icon_4144740.png" alt="myprofile" class="user-profile-img">
+                <img src="../assets/images/profile.png" alt="myprofile" class="user-profile-img">
                 <p class="img-fontawesome-profil"><i class="fas fa-images"></i></p>
                 <div class="off-and-basket">
-                    <router-link style="text-decoration: none; color: inherit" to="/"><span id="hover-login" @click="logoutUser"><i class="fas fa-power-off"></i></span></router-link>
+                    <router-link style="text-decoration: none; color: inherit" to="/"><span id="hover-login" @click="deleteUser"><i class="fas fa-trash-alt margin-right-off"></i></span></router-link>
                 </div>
             </div>
             
@@ -41,9 +41,7 @@
                 <div>
                     <input v-model="user.email" type="text" class="card-info-user" id="email" name="email" placeholder="New email" required> 
                 </div>
-                <div>
-                    <input v-model="user.post" type="text" class="card-info-user" id="post" name="post" placeholder="New post" required> 
-                </div>
+               
                
                 <div class="button-form">
                     <input @click="updateUser" class="button" type="button" value="Save the changes">
@@ -109,7 +107,22 @@
                     localStorage.removeItem('userToken');
                     localStorage.removeItem('userId');
                     delete axios.defaults.headers.common['Authorization'];
-                }
+                },
+                deleteUser: function() {
+                Vue.axios.delete('http://localhost:3000/api/auth/users/' + this.$route.params.id)
+                .then((data) => {
+                    this.user.id
+                    console.log(data);
+
+                    if(this.user.id) {
+                        window.location.href=`/articles`;
+                        localStorage.removeItem('userToken');
+                        localStorage.removeItem('userId');
+                        delete axios.defaults.headers.common['Authorization'];
+                    }
+                });
+            }
+                
             }
         }
 </script>

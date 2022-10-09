@@ -102,7 +102,7 @@ exports.updateComment = async(req, res) => {
         const comment = await Comment.findOne({
             where: { id: commentId }
         })
-        //console.log(article)
+        
         if(userId === comment.UserId || user.isAdmin === true) {
             const updatedComment = await comment.update({
                 content: req.body.content
