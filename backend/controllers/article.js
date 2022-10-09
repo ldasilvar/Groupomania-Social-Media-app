@@ -95,7 +95,7 @@ const UpdateArticle = async(req, res) => {
     try {
         const userId = jwtUtils.getUserId(req.headers.authorization);
         const articleId = req.params.id;
-        let imageUrl = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`;
+        // let imageUrl = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`;
         const article = await Article.findOne({
             where: { id: articleId }
         })
@@ -106,7 +106,7 @@ const UpdateArticle = async(req, res) => {
             const updatedArticle = await article.update({
                 title: req.body.title,
                 content: req.body.content,
-                image: imageUrl, 
+                image: req.body.image, 
             
 
             }, {

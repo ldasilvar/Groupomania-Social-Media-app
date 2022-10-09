@@ -2,7 +2,7 @@
     <div class="container">
         <div class="navbar">
             <div>
-               <router-link to="/articles"><img src="../assets/images/icon-left-font-monochrome-black.png" alt="groupomania" class="logo"></router-link>
+               <router-link to="/"><img src="../assets/images/icon-left-font-monochrome-black.png" alt="groupomania" class="logo"></router-link>
             </div>
             <div class="list">
                 <div>

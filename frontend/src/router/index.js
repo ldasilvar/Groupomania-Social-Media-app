@@ -6,39 +6,39 @@ Vue.use(VueRouter);
 const routes = [{
     path: '/articles',
     name: 'Articles',
-    component: () => import('../components/Articles.vue')
+    component: () => import('../views/Articles.vue')
 }, {
     path:'/users/myprofile',
     name: 'UserProfil',
-    component: () => import('../components/UserProfil.vue')
+    component: () => import('../views/UserProfil.vue')
 }, {
     path:'',
     name: 'LoginUser',
-    component: () => import('../components/login.vue')
+    component: () => import('../views/login.vue')
 }, {
     path:'/users/signup',
     name: 'SignupUser',
-    component: () => import('../components/signup.vue')
+    component: () => import('../views/signup.vue')
 }, {
     path:'/new/',
     name: 'NewArticle',
-    component: () => import('../components/NewArticle.vue')
+    component: () => import('../views/NewArticle.vue')
 }, {
    path:'/articles/:id',
    name: 'Article',
-   component: () => import('../components/Article.vue')
+   component: () => import('../views/Article.vue')
 }, {
     path:'/articles/edit/:id',
     name: 'UpdateArticle',
-    component: () => import('../components/UpdateArticle.vue')
+    component: () => import('../views/UpdateArticle.vue')
 }, {
     path:'/users/edit/:id',
     name: 'UpdateUser',
-    component: () => import('../components/UpdateUser.vue')
+    component: () => import('../views/UpdateUser.vue')
 }, {
     path:'/comments',
     name: 'DeleteComment',
-    component: () => import('../components/Article.vue')    
+    component: () => import('../views/Article.vue')    
 }]
 
 const router = new VueRouter({
