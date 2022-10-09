@@ -70,7 +70,7 @@ Vue.use(VueAxios, axios)
         methods: {
             updateArticle: function() {
                 Vue.axios.defaults.headers = {
-                    "Content-Type": "multipart/form-data",
+                    "Content-Type": "application/json",
                     Authorization: "Bearer " + localStorage.getItem('userToken')
                 }
                 console.log(this.$route.params.id)
@@ -78,7 +78,7 @@ Vue.use(VueAxios, axios)
                 Vue.axios.put(`http://localhost:3000/api/articles/edit/`+ this.$route.params.id, {
                     title: this.article.title,
                     content: this.article.content,
-                    image: this.article.image,
+                    image: this.image,
                 })
                 .then((response) => {
                    

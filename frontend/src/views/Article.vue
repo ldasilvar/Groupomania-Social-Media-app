@@ -52,14 +52,14 @@
                     </div>
                     <div>
                       <input v-model="content" placeholder="Edit your comment" class="input-comment" type="text">            
-                      <span @click="updateComment"><i class="fas fa-edit margin-right-off"></i></span>
+                      <span @click="updateComment (com.id, com.content)"><i class="fas fa-edit margin-right-off"></i></span>
                       <span id="hover-login" @click="deleteComment(com.id)"><i class="fas fa-trash-alt margin-right-off"></i></span>
                     </div>
                 </div>                      
             </div>  
             <div class="comment-article form-comment">
                 <div>
-                    <input placeholder="Write your comment" class="input-comment" type="text">
+                    <input v-model="content" placeholder="Write your comment" class="input-comment" type="text">
                     <i @click="addComment" class="fas fa-plus comment-plus"> Post a comment </i>                                     
                 </div>
             </div>
@@ -110,17 +110,15 @@ Vue.use(VueAxios, axios)
                     }
                 })
             },
-            updateComment: function(commentId) {
+            updateComment: function(commentId, commentContent) {
                 Vue.axios.defaults.headers = {
                     'Content-Type' : 'application/json',
                     Authorization: "Bearer " + localStorage.getItem('userToken')
                 }
-                Vue.axios.put('https://localhost:3000/api/articles/' + this.$route.params.id + '/comments/' + commentId,{
-                    content: this.content
+                Vue.axios.put('https://localhost:3000/api/articles/' + this.$route.params.id + '/comments/' + commentId, {
+                    content: commentContent
                 })
-
                 .then((data) => {
-                    
                     console.log(data)
                     console.log(this.content)
                 })
