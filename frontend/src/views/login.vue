@@ -63,7 +63,7 @@ Vue.use(VueAxios, axios)
                   console.log(response)
                   this.data = response.data
                   const token = response.data.token;
-                  // console.log(token);
+                 
 
                   if(response) {
                       alert('Login Succesful');

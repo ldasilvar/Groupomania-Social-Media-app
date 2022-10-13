@@ -5,6 +5,7 @@ const jwtUtils= require('../utils/jwt.utils');
 const fs = require("fs");
 
 
+
 const getAllArticles = async (req, res) => {  
     try {
         const fields = req.body.fields;
@@ -27,7 +28,7 @@ const getAllArticles = async (req, res) => {
 
         if(articles) {
             res.status(200).json(articles);
-            // console.log(pathImg);
+          
         } else {
             res.status(404).json({ "error": "no messages found"});
         }
@@ -95,20 +96,21 @@ const UpdateArticle = async(req, res) => {
     try {
         const userId = jwtUtils.getUserId(req.headers.authorization);
         const articleId = req.params.id;
-        // let imageUrl = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`;
+        const title = req.body.title;
+        const content = req.body.content;
+        let imageUrl = `${req.protocol}://${req.get('host')}/images/${req.body.image}`;
         const article = await Article.findOne({
             where: { id: articleId }
         })
+        console.log('req.body.image')
         console.log(req.body.image)
 
         if(userId === article.UserId) {
             
             const updatedArticle = await article.update({
-                title: req.body.title,
-                content: req.body.content,
-                // image: req.body.image, 
-            
-
+                title: title,
+                content: content,
+                image: imageUrl,
             }, {
                 where: { id: req.body.id }
             });
@@ -132,10 +134,13 @@ const deleteArticle = async (req, res) => {
             where: { id: userId }
         });
 
+        
+
         const article = await Article.findOne({
             where: { id: articleId }
         })
-
+        const filename = article.image.split('/images/')[1];
+        fs.unlink('images/' + filename, async () => {
         if(userId === article.UserId || user.isAdmin === true) {
             const deleted = await Article.destroy({
                 where: { id: articleId }
@@ -144,10 +149,11 @@ const deleteArticle = async (req, res) => {
            if(deleted) {
                 return res.status(204).send("article deleted");
             }
-            throw new Error('Article not found') 
+            throw new Error('Article not found');
         }
         throw new Error('User not found');
-    } catch(error) {
+    })
+   } catch(error) {
         return res.status(500).send(error.message);
     }
 };

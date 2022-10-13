@@ -91,7 +91,8 @@ Vue.use(VueAxios, axios)
             Vue.axios.get(`http://localhost:3000/api/articles/`+ this.$route.params.id)
             .then((data) => {
                 this.article = data.data
-                console.log(data);
+                console.log( "article" )
+                console.log( this.article )
             })
             Vue.axios.get('http://localhost:3000/api/articles/' + this.$route.params.id + '/comments/')
             .then((data) => {
@@ -102,8 +103,10 @@ Vue.use(VueAxios, axios)
             deleteComment: function(commentId) {
                 Vue.axios.delete('http://localhost:3000/api/comments/' + commentId)
                 .then((data) => {
-                    this.comment = data.data
-                    
+                    this.comment = data.data;
+                    // if(error){
+                    //     alert('Not allowed to delete comment');
+                    // }
 
                     if(data) {
                         window.location.href=`/articles/${this.$route.params.id}`
@@ -120,6 +123,7 @@ Vue.use(VueAxios, axios)
                 })
                 .then((data) => {
                     console.log(data)
+                    console.log('this.content')
                     console.log(this.content)
                 })
             },
@@ -127,6 +131,7 @@ Vue.use(VueAxios, axios)
                 Vue.axios.delete('http://localhost:3000/api/articles/' + this.$route.params.id)
                 .then((data) => {
                     this.article.id
+                    console.log('data');
                     console.log(data);
 
                     if(this.article.id) {

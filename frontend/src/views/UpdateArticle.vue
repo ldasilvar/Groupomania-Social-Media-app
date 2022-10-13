@@ -53,7 +53,7 @@ Vue.use(VueAxios, axios)
                 article: null,
                 title: "",
                 content: "",
-                image:""
+                image:"",
             }
         }, mounted()
         {
@@ -64,25 +64,24 @@ Vue.use(VueAxios, axios)
             Vue.axios.get(`http://localhost:3000/api/articles/`+ this.$route.params.id)
             .then((data) => {
                 this.article = data.data
-                console.log(data);
+                // console.log(data);
             })
         }, 
         methods: {
             updateArticle: function() {
+                const formData = new FormData();
+                formData.append("image", this.image);
+                formData.append("title", this.title);
+                formData.append("content", this.content);
+               
+
                 Vue.axios.defaults.headers = {
-                    "Content-Type": "application/json",
+                    "Content-Type": "multipart/form-data",
                     Authorization: "Bearer " + localStorage.getItem('userToken')
                 }
-                console.log(this.$route.params.id)
-                // let imageUrl = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`;
-                Vue.axios.put(`http://localhost:3000/api/articles/edit/`+ this.$route.params.id, {
-                    title: this.article.title,
-                    content: this.article.content,
-                    image: this.image,
-                })
+                
+                Vue.axios.put(`http://localhost:3000/api/articles/edit/`+ formData )
                 .then((response) => {
-                   
-
                     if(response) {
                         window.location.href=`/articles`;
                     }                    
@@ -97,6 +96,7 @@ Vue.use(VueAxios, axios)
             },
             selectedImageFile: function(e) {
                 this.image = e.target.files[0];
+                console.log('this.image here');
                 console.log(this.image);
             }
         }
