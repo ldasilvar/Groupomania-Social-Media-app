@@ -80,7 +80,7 @@ Vue.use(VueAxios, axios)
                     Authorization: "Bearer " + localStorage.getItem('userToken')
                 }
                 
-                Vue.axios.put(`http://localhost:3000/api/articles/edit/`+ formData )
+                Vue.axios.put(`http://localhost:3000/api/articles/new/`+ formData )
                 .then((response) => {
                     if(response) {
                         window.location.href=`/articles`;

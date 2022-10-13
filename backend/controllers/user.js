@@ -28,16 +28,16 @@ console.log(req.body)
         // conditions signup
 
         if(fullname > 13 || fullname < 3) {
-            return res.status(400).json({ 'erreur': 'Your name must be between 3 and 13 characters'});
+            return res.status(400).json({ 'error': 'Your name must be between 3 and 13 characters'});
         }
 
 
         if(!emailRegex.test(email)) {
-            return res.status(400).json({ 'erreur': 'Email address is not valid'});
+            return res.status(400).json({ 'error': 'Email address is not valid'});
         }
 
         if(!passwordRegex.test(password)) {
-            return res.status(400).json({ 'erreur': 'Password is not valid'});
+            return res.status(400).json({ 'error': 'Password is not valid'});
         }
 
         const user = await User.findOne({
@@ -109,7 +109,7 @@ exports.userProfil = async (req, res) => {
 
     try {
         const user = await User.findOne({
-            attributes: ['id', 'fullname', 'email', 'description', 'post'],
+            attributes: ['id', 'fullname', 'email'],
             where: { id: userId }
         });
 
@@ -127,12 +127,12 @@ exports.userDelete = async (req, res) => {
     try {
         const userId = jwtUtils.getUserId(req.headers.authorization);
         const user = await User.findOne({ where: { id: userId }});
-        const Article = await Article.findOne({ where: { id: req.params.id }});
+        // const Article = await Article.findOne({ where: { id: req.params.id }});
 
             if(user) {
-                Article.destroy({
-                    where: { id: userId }
-                })
+                // Article.destroy({
+                //     where: { id: userId }
+                // })
                 User.destroy({
                     where: { id: userId }
                 })
@@ -156,8 +156,7 @@ exports.userUpdate = async(req, res) => {
             const updatedUser = await user.update({
                 fullname: req.body.fullname,
                 email: req.body.email,
-                description: req.body.description,
-                post: req.body.post
+                
             }, {
                 where: { id: req.body.id }
             });

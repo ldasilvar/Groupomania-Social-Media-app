@@ -86,7 +86,7 @@ Vue.use(VueAxios, axios)
                     console.log(data);
 
                     if(this.user.id) {
-                        window.location.href=`/articles`;
+                        window.location.href=`/`;
                         localStorage.removeItem('userToken');
                         localStorage.removeItem('userId');
                         delete axios.defaults.headers.common['Authorization'];
