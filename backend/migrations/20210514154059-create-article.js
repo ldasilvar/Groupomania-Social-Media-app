@@ -18,11 +18,12 @@ module.exports = {
         }
       },
       title: {
-        allowNull: false,
-        type: Sequelize.STRING
+        allowNull: true,
+        type: Sequelize.STRING,
+        
       },
       content: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.STRING
       },
       likes: {

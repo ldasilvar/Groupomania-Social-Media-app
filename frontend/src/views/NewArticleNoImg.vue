@@ -20,17 +20,15 @@
         </div>
 
         <div class="card-display-article"> 
-            <form action="http://localhost:3000/api/articles/new" method="post">
+            <form action="http://localhost:3000/api/articles/newnoimg" method="post">
                 
                 <div>
-                    <input v-model="title" class="form-title-content" type="text" id="titre" name="titre" placeholder="Title" required>  
+                    <input v-model="title" class="form-title-content" type="text" id="titre" name="titre" placeholder="Title">  
                 </div>
                 <div>
-                    <input v-model="content" lass="form-title-content" id="content" type="text" name="contenu" placeholder="Write your post here" required>  
+                    <input v-model="content" lass="form-title-content" id="content" type="text" name="contenu" placeholder="Write your post here">  
                 </div>
-                <div class="inputImageButton">
-                    <input type="file" crossorigin="anonymous" ref="files" id="image" name="inputImage" @change="selectedImageFile">                    
-                </div>
+               
                 <div class="button-form">
                     <input @click="createArticle" class="button" type="button" value="Post">
                 </div>  
@@ -47,30 +45,27 @@ import VueAxios from 'vue-axios';
 
 Vue.use(VueAxios, axios)
     export default {
-        name: 'NewArticle',
+        name: 'NewArticleNoImg',
         data: function() {
             return {
                 title: "",
                 content: "",
-                image: ""
+                
             }
         },
         methods: {
             createArticle: function() {
                 const formData = new FormData();
-                formData.append("image", this.image);
                 formData.append("title", this.title);
                 formData.append("content", this.content);
-                // console.log(formData.get("content"));
-                // console.log(formData.get("image"));
-                // console.log(formData.get("title"));
+                
 
                 Vue.axios.defaults.headers = {
-                    'Content-Type' : 'multipart/form-data',
+                    'Content-Type' : 'application/json',
                     Authorization: "Bearer " + localStorage.getItem('userToken')
                 }
 
-                Vue.axios.post('http://localhost:3000/api/articles/new', formData)
+                Vue.axios.post('http://localhost:3000/api/articles/newnoimg', {formData})
                 .then((response) => {
                     if(response) {
                         window.location.href=`/articles`;
@@ -82,10 +77,7 @@ Vue.use(VueAxios, axios)
                 localStorage.removeItem('userId');
                 delete axios.defaults.headers['Authorization'];
             },
-            selectedImageFile: function(e) {
-                this.image = e.target.files[0];
-                // console.log(this.image);
-            }
+           
         }
     }
 

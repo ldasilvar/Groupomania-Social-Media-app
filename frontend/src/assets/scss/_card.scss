@@ -4,19 +4,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 20px;
 
     p {
         padding: 16px;
-        background-color: rgba(17, 94, 39, 0.6);
+        background-color: rgba(15, 195, 70, 0.6);
         border-radius: 50px;
-        color: rgb(40, 9, 224);
+        color: #2D3F5D;
         font-weight: bold;
+        margin: 10px;
+        box-shadow: 4px 4px 6px #aaa;
 
         &:hover {
-            color: #001a8d;
+            color: whitesmoke;
             background-color: #009765;
-            
+            margin-left: 15px;
         }
     }
 
@@ -41,7 +43,7 @@
         border: 1px solid #E5E5E5;
         border-radius: 16px;
         margin-bottom: 30px;
-
+        box-shadow: 4px 4px 6px #aaa;
         &:hover {
             border: 1px solid #009765;
         }
@@ -49,23 +51,30 @@
 
     .img-article {
         
-        width: 15%;
-        margin-left: 42%;
+        width: 50%;
+        margin-left: 27%;
         margin-top: 5%;
-        padding-bottom: 10px;
+        margin-bottom: 3%;
+        border-radius: 25px;
+        box-shadow: 4px 4px 6px #aaa;
+        position: relative;
+        background: #fff;
+        max-width: 500px;
+        max-height: 500px;
     }
 
     .flex-name-user {
         display: flex;
+        
 
         .margin-right-5 {
             margin-right: 5px;
-            margin-top: 14px;
+            margin-top: 5px;
         }
 
         .avatar-article {
-            width: 50px;
-            height: 50px;
+            width: 36px;
+            height: 36px;
             margin-right: 16px;
             bottom: 4px;
         }
@@ -78,11 +87,6 @@
     }
 }
 
-// .fa-trash-alt:before, .fa-trash-can:before{
-//     position: relative;
-//     bottom: 0;
-//     right: 85px;
-// }
 
 
 
@@ -157,27 +161,45 @@
 .card-profile {
     display: flex;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 25px;
     width: 100%;
     margin-bottom: 14%;
 }
 
 .user-profile {
     background-color: #F9F9F9;
+    border: 1px solid #E5E5E5;
+    margin-top: 1%;
+    width: 300px;
+    margin-top: 10px;
+        border-radius: 16px;
+        margin-bottom: 30px;
+        box-shadow: 6px 6px 6px #aaa;
+        &:hover {
+            border: 1px solid #009765;
+        }
 
    .user-profile-img {
-        width: 220px;
-        height: 220px;
+        width: 100px;
+        height: auto;
         margin: 16px;
-        margin-bottom: 46px;
+        margin-left: 35%;
+        
     }
+    
 
     .img-fontawesome-profil {
-        background-color: #001a8d;
+        background-color: rgba(17, 94, 39, 0.6);
         color: black;
         text-align: center;
         padding: 12px;
         border-radius: 46px;
+        margin: 10px;
+        width: fit-content;
+        margin-left: 16%;
+        margin-right: 12%;
+        cursor: pointer;
+        
     }
 
     .margin-right-off {
@@ -190,20 +212,66 @@
     justify-content: center;
     padding: 16px;
     font-size: 22px;
+    margin-left: 15%;
+}
+.user-profile1 {
+    background-color: #F9F9F9;
+    border: 1px solid #E5E5E5;
+    margin-top: 1%;
+    width: 300px;
+    margin-top: 80px;
+        border-radius: 16px;
+        margin-bottom: 30px;
+        box-shadow: 6px 6px 6px #aaa;
+        &:hover {
+            border: 1px solid #009765;
+        }
+
+   .user-profile-img {
+        width: 100px;
+        height: auto;
+        margin: 16px;
+        margin-left: 35%;
+        
+    }
+    .img-fontawesome-profil {
+        background-color: rgba(17, 94, 39, 0.6);
+        color: black;
+        text-align: center;
+        padding: 12px;
+        border-radius: 46px;
+        margin: 10px;
+        width: fit-content;
+        margin-left: 16%;
+        margin-right: 12%;
+        cursor: pointer;
+        
+    }
+}
+
+.user-profile-img1{
+    width: 100px;
+    height: auto;
+    margin: 16px;
+    margin-left: 35%;
+
 }
 
 .info-user {
-    padding-left: 30px;
-    margin-top: 10px;
+    
+    margin-top: 1px;
+    margin-right: 16%;
+    
 
     .card-info-user {
         border: 1px solid #ECECEC;
-        width: 400px;
         padding: 10px;
-        text-align: right;
-        font-style: italic;
+        text-align: center;
+        font-weight: 700;
         color: #A8A8A8;
+        margin-top: 12%;
         margin-bottom: 16px;
+        margin-left: 20%;
     }
 
     #description-profil {
@@ -214,6 +282,24 @@
         font-style: italic;
         color: #A8A8A8;
         margin-bottom: 16px;
+    }
+}
+.info-user2 {
+    
+    margin-top: 1px;
+    margin-right: 16%;
+    
+
+    .card-info-user2 {
+        border: 1px solid #ECECEC;
+        padding: 10px;
+        text-align: center;
+        font-weight: 700;
+        color: #A8A8A8;
+        margin-top: 8%;
+        margin-bottom: 16px;
+        margin-right: 18%;
+        margin-left: 9%;
     }
 }
 
@@ -231,6 +317,7 @@
         background-color: rgba(17 94 39 / 60%);
         padding: 5px 20px;
         left: 327px;
+        box-shadow: 4px 4px 6px #aaa;
 
         img {
             width: 150px;
@@ -325,6 +412,7 @@
         background-color: rgba(17 94 39 / 60%);
         padding: 17px 23px;
         height: 400px;
+        box-shadow: 4px 4px 6px #aaa;
         
     }
 
@@ -389,6 +477,15 @@
    cursor: pointer;
 
 }
+
+.margin-right-off1 {
+    padding: 10px; 
+    position: relative;
+    cursor: pointer;
+    margin-left: 45%;
+    margin-bottom: 5px;
+ }
+
 #image {
 
     margin-left: 35px;

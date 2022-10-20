@@ -6,10 +6,8 @@
             </div>
             <div class="list">
                 <div class="dropdown">
-                   <img src="../assets/images/profile.png" alt="Profile Avatar" class="avatar">
-                   <div name="login-signup" id="login-signup" class="list-login-signup">
-                       <router-link style="text-decoration: none; color: inherit" to="/users/myprofile"><li class="hover-profil">Profile</li></router-link>
-                   </div>
+                    <router-link style="text-decoration: none; color: inherit" to="/users/myprofile"><img src="../assets/images/profile.png" alt="Profile photo" class="avatar" title="Go to My Profile details"></router-link>
+                   
                 </div>
                 <div>
                    <ul>
@@ -24,10 +22,10 @@
         <div class="card-display-article"> 
             <form method="put">
                 <div>
-                    <input v-model="article.title" class="form-title-content" type="text" id="title" name="title" placeholder="New Title" required>  
+                    <input class="form-title-content" type="text" id="title" name="title" placeholder="New Title" required>  
                 </div>
                 <div>
-                    <input v-model="article.content" class="form-title-content" id="content" type="text" name="content" placeholder="New content" required>  
+                    <input  class="form-title-content" id="content" type="text" name="content" placeholder="New content" required>  
                 </div>
                 <div>
                     <input type="file" crossorigin="anonymous" ref="files" id="image" name="inputImage" @change="selectedImageFile">                    
@@ -64,7 +62,8 @@ Vue.use(VueAxios, axios)
             Vue.axios.get(`http://localhost:3000/api/articles/`+ this.$route.params.id)
             .then((data) => {
                 this.article = data.data
-                // console.log(data);
+                console.log('data');
+                console.log(data);
             })
         }, 
         methods: {
@@ -80,7 +79,7 @@ Vue.use(VueAxios, axios)
                     Authorization: "Bearer " + localStorage.getItem('userToken')
                 }
                 
-                Vue.axios.put(`http://localhost:3000/api/articles/new/`+ formData )
+                Vue.axios.put(`http://localhost:3000/api/articles/edit`+ formData )
                 .then((response) => {
                     if(response) {
                         window.location.href=`/articles`;
@@ -92,12 +91,11 @@ Vue.use(VueAxios, axios)
             logoutUser: function() {
                 localStorage.removeItem('userToken');
                 localStorage.removeItem('userId');
-                delete axios.defaults.headers.common['Authorization'];
+                delete axios.defaults.headers['Authorization'];
             },
             selectedImageFile: function(e) {
                 this.image = e.target.files[0];
-                console.log('this.image here');
-                console.log(this.image);
+                
             }
         }
     }

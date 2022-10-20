@@ -23,7 +23,12 @@ const routes = [{
     path:'/new/',
     name: 'NewArticle',
     component: () => import('../views/NewArticle.vue')
-}, {
+}, 
+{
+    path:'/newnoimg/',
+    name: 'NewArticleNoImg',
+    component: () => import('../views/NewArticleNoImg.vue')
+},{
    path:'/articles/:id',
    name: 'Article',
    component: () => import('../views/Article.vue')

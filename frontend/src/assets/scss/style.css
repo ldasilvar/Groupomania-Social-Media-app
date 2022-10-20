@@ -1,3 +1,21 @@
+.welcome-user {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 900;
+  color: #2D3F5D;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 60px;
+  padding-top: 10px;
+}
+
 *, ::before, ::after {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -50,8 +68,8 @@ li {
   position: relative;
 }
 .avatar:hover {
-  border: 2px solid #001a8d;
-  border-radius: 50%;
+  border: 2.5px solid #009765;
+  border-radius: 60%;
 }
 
 .dropdown {
@@ -117,7 +135,7 @@ li {
 }
 
 .hover-login:hover {
-  color: #1326d1;
+  color: #009765;
 }
 
 .card-evenement {
@@ -130,18 +148,22 @@ li {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 .card-evenement p {
   padding: 16px;
-  background-color: rgba(17, 94, 39, 0.6);
+  background-color: rgba(15, 195, 70, 0.6);
   border-radius: 50px;
-  color: rgb(40, 9, 224);
+  color: #2D3F5D;
   font-weight: bold;
+  margin: 10px;
+  -webkit-box-shadow: 4px 4px 6px #aaa;
+          box-shadow: 4px 4px 6px #aaa;
 }
 .card-evenement p:hover {
-  color: #001a8d;
+  color: whitesmoke;
   background-color: #009765;
+  margin-left: 15px;
 }
 .card-evenement i {
   margin-left: 22px;
@@ -166,15 +188,24 @@ li {
   border: 1px solid #E5E5E5;
   border-radius: 16px;
   margin-bottom: 30px;
+  -webkit-box-shadow: 4px 4px 6px #aaa;
+          box-shadow: 4px 4px 6px #aaa;
 }
 .card .cards:hover {
   border: 1px solid #009765;
 }
 .card .img-article {
-  width: 15%;
-  margin-left: 42%;
+  width: 50%;
+  margin-left: 27%;
   margin-top: 5%;
-  padding-bottom: 10px;
+  margin-bottom: 3%;
+  border-radius: 25px;
+  -webkit-box-shadow: 4px 4px 6px #aaa;
+          box-shadow: 4px 4px 6px #aaa;
+  position: relative;
+  background: #fff;
+  max-width: 500px;
+  max-height: 500px;
 }
 .card .flex-name-user {
   display: -webkit-box;
@@ -183,11 +214,11 @@ li {
 }
 .card .flex-name-user .margin-right-5 {
   margin-right: 5px;
-  margin-top: 14px;
+  margin-top: 5px;
 }
 .card .flex-name-user .avatar-article {
-  width: 50px;
-  height: 50px;
+  width: 36px;
+  height: 36px;
   margin-right: 16px;
   bottom: 4px;
 }
@@ -269,26 +300,44 @@ li {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-top: 50px;
+  margin-top: 25px;
   width: 100%;
   margin-bottom: 14%;
 }
 
 .user-profile {
   background-color: #F9F9F9;
+  border: 1px solid #E5E5E5;
+  margin-top: 1%;
+  width: 300px;
+  margin-top: 10px;
+  border-radius: 16px;
+  margin-bottom: 30px;
+  -webkit-box-shadow: 6px 6px 6px #aaa;
+          box-shadow: 6px 6px 6px #aaa;
+}
+.user-profile:hover {
+  border: 1px solid #009765;
 }
 .user-profile .user-profile-img {
-  width: 220px;
-  height: 220px;
+  width: 100px;
+  height: auto;
   margin: 16px;
-  margin-bottom: 46px;
+  margin-left: 35%;
 }
 .user-profile .img-fontawesome-profil {
-  background-color: #001a8d;
+  background-color: rgba(17, 94, 39, 0.6);
   color: black;
   text-align: center;
   padding: 12px;
   border-radius: 46px;
+  margin: 10px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-left: 16%;
+  margin-right: 12%;
+  cursor: pointer;
 }
 .user-profile .margin-right-off {
   margin-right: 26px;
@@ -303,20 +352,64 @@ li {
           justify-content: center;
   padding: 16px;
   font-size: 22px;
+  margin-left: 15%;
+}
+
+.user-profile1 {
+  background-color: #F9F9F9;
+  border: 1px solid #E5E5E5;
+  margin-top: 1%;
+  width: 300px;
+  margin-top: 80px;
+  border-radius: 16px;
+  margin-bottom: 30px;
+  -webkit-box-shadow: 6px 6px 6px #aaa;
+          box-shadow: 6px 6px 6px #aaa;
+}
+.user-profile1:hover {
+  border: 1px solid #009765;
+}
+.user-profile1 .user-profile-img {
+  width: 100px;
+  height: auto;
+  margin: 16px;
+  margin-left: 35%;
+}
+.user-profile1 .img-fontawesome-profil {
+  background-color: rgba(17, 94, 39, 0.6);
+  color: black;
+  text-align: center;
+  padding: 12px;
+  border-radius: 46px;
+  margin: 10px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-left: 16%;
+  margin-right: 12%;
+  cursor: pointer;
+}
+
+.user-profile-img1 {
+  width: 100px;
+  height: auto;
+  margin: 16px;
+  margin-left: 35%;
 }
 
 .info-user {
-  padding-left: 30px;
-  margin-top: 10px;
+  margin-top: 1px;
+  margin-right: 16%;
 }
 .info-user .card-info-user {
   border: 1px solid #ECECEC;
-  width: 400px;
   padding: 10px;
-  text-align: right;
-  font-style: italic;
+  text-align: center;
+  font-weight: 700;
   color: #A8A8A8;
+  margin-top: 12%;
   margin-bottom: 16px;
+  margin-left: 20%;
 }
 .info-user #description-profil {
   border: 1px solid #ECECEC;
@@ -326,6 +419,22 @@ li {
   font-style: italic;
   color: #A8A8A8;
   margin-bottom: 16px;
+}
+
+.info-user2 {
+  margin-top: 1px;
+  margin-right: 16%;
+}
+.info-user2 .card-info-user2 {
+  border: 1px solid #ECECEC;
+  padding: 10px;
+  text-align: center;
+  font-weight: 700;
+  color: #A8A8A8;
+  margin-top: 8%;
+  margin-bottom: 16px;
+  margin-right: 18%;
+  margin-left: 9%;
 }
 
 .card-login {
@@ -344,6 +453,8 @@ li {
   background-color: rgba(17, 94, 39, 0.6);
   padding: 5px 20px;
   left: 327px;
+  -webkit-box-shadow: 4px 4px 6px #aaa;
+          box-shadow: 4px 4px 6px #aaa;
 }
 .card-login form img {
   width: 150px;
@@ -435,6 +546,8 @@ li {
   background-color: rgba(17, 94, 39, 0.6);
   padding: 17px 23px;
   height: 400px;
+  -webkit-box-shadow: 4px 4px 6px #aaa;
+          box-shadow: 4px 4px 6px #aaa;
 }
 .card-display-article .button-form {
   margin-top: 16px;
@@ -493,6 +606,14 @@ li {
   padding: 10px;
   position: relative;
   cursor: pointer;
+}
+
+.margin-right-off1 {
+  padding: 10px;
+  position: relative;
+  cursor: pointer;
+  margin-left: 45%;
+  margin-bottom: 5px;
 }
 
 #image {
@@ -577,12 +698,26 @@ li {
   .navbar .logo {
     margin-left: 38%;
   }
+  .list {
+    margin-bottom: 5%;
+  }
   .list-navbar {
     position: relative;
     top: 61px;
+    right: 73%;
   }
   .card-login {
     margin-top: 60px;
+  }
+  .hover-login {
+    position: relative;
+    top: 5px;
+    margin-left: -10%;
+  }
+  .avatar {
+    position: relative;
+    top: 60px;
+    right: 900%;
   }
   .card-display-article {
     height: 400px;
@@ -609,8 +744,14 @@ li {
   #content {
     width: 86%;
   }
-  .button {
-    margin-left: 73%;
+  .card-login form {
+    margin-top: 5%;
+  }
+  .card .cards {
+    margin-top: 80px;
+  }
+  .welcome-user {
+    border-top: 2px solid #E5E5E5;
   }
 }
 @media only screen and (max-width: 500px) {
@@ -640,10 +781,31 @@ li {
   #content {
     width: 86%;
   }
-  .button {
-    margin-left: 73%;
-  }
   .card-display-article form {
     width: 340px;
+  }
+  .card-login form {
+    margin-top: 5%;
+    max-width: 370px;
+  }
+  .card-login form .form-email-password {
+    width: 330px;
+    margin-top: 5%;
+  }
+  .list-navbar {
+    position: relative;
+    top: 61px;
+    right: 0%;
+  }
+  .avatar {
+    right: 340%;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .avatar {
+    right: 100%;
+  }
+  .navbar .logo {
+    margin-left: 26%;
   }
 }

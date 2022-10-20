@@ -40,8 +40,9 @@ border-top: 2px solid #E0E0E0;
 bottom: 0px; 
 left: 0px; 
 text-align: center; 
-//  position:fixed;
- bottom:0;
+ position:relative;
+ margin-top: auto;
+ 
 }
 
  .footer p{

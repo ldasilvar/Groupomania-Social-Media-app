@@ -21,7 +21,7 @@ module.exports = {
       let token = data.split(' ')[1];
       try {
         let decodedToken = jwt.verify(token, JWT_SIGN_SECRET)
-        userId = decodedToken.userId
+        const userId = decodedToken.userId;
         return userId
       }
       catch (err) {

@@ -7,10 +7,8 @@
             </div>
             <div class="list">
                 <div class="dropdown">
-                   <img src="../assets/images/profile.png" alt="Profile Avatar" class="avatar">
-                   <div name="login-signup" id="login-signup" class="list-login-signup">
-                       <router-link style="text-decoration: none; color: inherit" to="/users/myprofile"><li class="hover-profil">profil</li></router-link>
-                   </div>
+                    <router-link style="text-decoration: none; color: inherit" to="/users/myprofile"><img src="../assets/images/profile.png" alt="Profile photo" class="avatar" title="Go to My Profile details"></router-link>
+                   
                 </div>
                 <div>
                    <ul>
@@ -25,28 +23,26 @@
         <!-- PROFIL -->
 
         <div class="card-profile">
-            <div class="user-profile">
-                <img src="../assets/images/profile.png" alt="myprofile" class="user-profile-img">
-                <p class="img-fontawesome-profil"><i class="fas fa-images"></i></p>
+            <div class="user-profile1">
+                <img src="../assets/images/profile.png" alt="myprofile" class="user-profile-img1">
+                <p class="img-fontawesome-profil">Upload your profile picture</p>
                 <div class="off-and-basket">
-                    <router-link style="text-decoration: none; color: inherit" to="/"><span id="hover-login" @click="deleteUser"><i class="fas fa-trash-alt margin-right-off"></i></span></router-link>
-                </div>
-            </div>
-            
-            <form method="put" class="info-user">
-                <div>
-                    <input v-model="user.fullname" type="text" class="card-info-user" id="fullname" name="fullname" placeholder="New Full Name" required> 
+                    <form method="put" class="info-user2">
+                <div v-if="user">
+                    <input v-model="user.fullname" type="text" class="card-info-user2" id="fullname" name="fullname" placeholder="New Full Name" required> 
                 </div>
                 
-                <div>
-                    <input v-model="user.email" type="text" class="card-info-user" id="email" name="email" placeholder="New email" required> 
+                <div v-if="user">
+                    <input v-model="user.email" type="text" class="card-info-user2" id="email" name="email" placeholder="New email" required> 
                 </div>
-               
-               
-                <div class="button-form">
+    
                     <input @click="updateUser" class="button" type="button" value="Save the changes">
-                </div>
+                
             </form>
+                </div>
+                <router-link style="text-decoration: none; color: inherit" to="/"><span id="hover-login" @click="deleteUser"><i class="fas fa-trash-alt margin-right-off1" title="Delete your profile"></i></span></router-link>
+            </div>
+           
         </div>
 
     </div>
@@ -77,7 +73,7 @@
                 Vue.axios.get(`http://localhost:3000/api/auth/users/myprofile`)
                 .then((data) => {
                     this.user = data.data
-                    console.log(data);
+                    // console.log(data);
                 })
             }, methods: 
             {
@@ -94,7 +90,8 @@
                     
                 })
                 .then((data) => {
-                    console.log(data)
+                    // console.log(data)
+                    console.log('this.user.fullname, this.user.fullname')
                     console.log(this.user.fullname, this.user.fullname)
 
                     if(data) {
@@ -106,7 +103,7 @@
             logoutUser: function() {
                     localStorage.removeItem('userToken');
                     localStorage.removeItem('userId');
-                    delete axios.defaults.headers.common['Authorization'];
+                    delete axios.defaults.headers['Authorization'];
                 },
                 deleteUser: function() {
                 Vue.axios.delete('http://localhost:3000/api/auth/users/' + this.$route.params.id)
@@ -115,6 +112,7 @@
                     console.log(data);
 
                     if(this.user.id) {
+                        alert('Your account has been deleted!')
                         window.location.href=`/articles`;
                         localStorage.removeItem('userToken');
                         localStorage.removeItem('userId');

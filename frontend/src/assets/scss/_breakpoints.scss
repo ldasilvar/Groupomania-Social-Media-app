@@ -9,15 +9,31 @@
 
     }
  }   
+ .list{
+    margin-bottom: 5%;
+ }
  .list-navbar{
     
     position: relative;
     top:61px;
+    right:73%;
 
  }
  .card-login{
     
     margin-top: 60px;
+ }
+ .hover-login{
+    position: relative;
+    top: 5px;
+    margin-left: -10%;
+    
+ }
+
+ .avatar{
+    position: relative;
+    top:60px;
+    right:900%;
  }
 
  .card-display-article {
@@ -42,10 +58,19 @@
 #content{
     width:86%;
 }
-.button{
-    margin-left: 73%;
-}
+// .button{
+//     margin-left: 73%;
+// }
 
+.card-login form{
+    margin-top: 5%;
+}
+.card .cards{
+    margin-top: 80px;
+}
+.welcome-user{
+    border-top: 2px solid #E5E5E5;
+}
   }
 
   @media only screen and (max-width: 500px) {
@@ -74,11 +99,44 @@
     #content{
         width:86%;
     }
-    .button{
-        margin-left: 73%;
-    }
+    // .button{
+    //     margin-left: 73%;
+    // }
 
     .card-display-article form{
         width: 340px;
+    }
+.card-login form{
+    margin-top: 5%;
+    max-width: 370px;
+
+   
+}
+ .card-login form .form-email-password{
+    width:330px;
+    margin-top: 5%;
+
+}
+
+.list-navbar{
+    
+    position: relative;
+    top:61px;
+    right:0%;
+
+ }
+ .avatar{
+
+    right:340%;
+ }
+  }
+  @media only screen and (max-width: 320px){
+
+    .avatar{
+
+        right:100%;
+    }
+    .navbar .logo{
+        margin-left: 26%;
     }
   }

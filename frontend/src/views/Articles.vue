@@ -6,10 +6,8 @@
             </div>
             <div class="list">
                 <div class="dropdown">
-                   <img src="../assets/images/profile.png" alt="Profile Avatar" class="avatar">
-                   <div name="login-signup" id="login-signup" class="list-login-signup">
-                       <router-link style="text-decoration: none; color: inherit" to="/users/myprofile"><li class="hover-profil">Profile</li></router-link>
-                   </div>
+                    <router-link style="text-decoration: none; color: inherit" to="/users/myprofile"><img src="../assets/images/profile.png" alt="Profile photo" class="avatar" title="Go to My Profile details"></router-link>
+                   
                 </div>
                 <div>
                    <ul>
@@ -20,23 +18,18 @@
                 
             </div>
         </div>
+        
+        <div v-if="user" class="welcome-user">
+                    <p>Welcome back {{user.fullname}}!!</p>
+                </div>
 
-
-        <!-- <div>
-            <tr v-for="loginUser.fullname in list" v-bind:key="User.fullname.id">
-            
-                <h1>
-                    Welcome back {{User.fullname}}
-                </h1>
-            </tr>
-
-        </div> -->
-    
 
         <div class="card-evenement">
-            <router-link to="/new" style="text-decoration: none; color: inherit"><p>Make a new post</p></router-link>
-            
+            <router-link to="/new" style="text-decoration: none; color: inherit"><p>Make a new post with multimedia</p></router-link>
+            <router-link to="/newnoimg" style="text-decoration: none; color: inherit"><p>Make a new post no multimedia</p></router-link>
         </div> 
+
+        
         
         <div class="card">
             <table>
@@ -93,9 +86,11 @@ Vue.use(VueAxios, axios)
         data()
         {
             return {
+            article: null,   
             list: undefined, 
             comment: undefined, 
-            content: ""
+            content: "",
+            user: null
             }
         }, 
         mounted()
@@ -104,22 +99,35 @@ Vue.use(VueAxios, axios)
                 'Content-Type' : 'application/json',
                 Authorization: "Bearer " + localStorage.getItem('userToken')
             }
+            Vue.axios.get(`http://localhost:3000/api/auth/users/myprofile`)
+            .then((data) => {
+                this.user = data.data
+                console.log(data);
+            })
+
+
+
+
+            Vue.axios.defaults.headers = {
+                'Content-Type' : 'application/json',
+                Authorization: "Bearer " + localStorage.getItem('userToken')
+            }
             Vue.axios.get('http://localhost:3000/api/articles')
             .then((response) => {
                 this.list = response.data
-                console.log(response);
+                
             })
             Vue.axios.get('http://localhost:3000/api/articles/' + this.$route.params.id + '/comments/')
             .then((response) => {
                 this.comment = response.data
-                console.log(response);
+                
             })
         }, 
         methods: {
             logoutUser: function() {
                 localStorage.removeItem('userToken');
                 localStorage.removeItem('userId');
-                delete axios.defaults.headers.common['Authorization'];
+                delete axios.defaults.headers['Authorization'];
             }
         },
     }

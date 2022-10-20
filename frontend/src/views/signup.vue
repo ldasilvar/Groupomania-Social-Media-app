@@ -82,7 +82,7 @@ Vue.use(VueAxios, axios)
 
                     if(response) {
                         alert('Your account has been created!')
-                        window.location.href=`/articles`;
+                        window.location.href=`/`;
                     }
                 })
                 .catch(error => {

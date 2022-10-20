@@ -6,10 +6,8 @@
             </div>
             <div class="list">
                 <div class="dropdown">
-                   <img src="../assets/images/profile.png" alt="Profile photo" class="avatar">
-                   <div name="login-signup" id="login-signup" class="list-login-signup">
-                       <router-link style="text-decoration: none; color: inherit" to="/users/myprofile"><li class="hover-profil">Profile</li></router-link>
-                   </div>
+                    <router-link style="text-decoration: none; color: inherit" to="/users/myprofile"><img src="../assets/images/profile.png" alt="Profile photo" class="avatar" title="Go to My Profile details"></router-link>
+                   
                 </div>
                 <div>
                    <ul>
@@ -21,9 +19,14 @@
             </div>
         </div>
 
+        <div class="card-evenement">
+            <router-link to="/articles" style="text-decoration: none; color: inherit"><p>Go Back to Articles</p></router-link>
+            
+        </div> 
+        
         <div class="card">
-            <div class="cards">
-                <div class="flex-name-user">
+            <div v-if="article" class="cards">
+                <div v-if="article" class="flex-name-user">
                         <li><img src="../assets/images/profile.png" alt="Profile Avatar" class="avatar-article"></li>
                         <li class="margin-right-5 font-user">{{article.User.fullname}}</li>
                         
@@ -33,7 +36,7 @@
                     <li class="bold-title">{{article.title}}</li>
                     <li><img :src="article.image" alt="image" class="img-article"></li>
                     <li class="margin-top-16">{{article.content}}</li>
-                    <i @click="deleteArticle"  class="fas fa-trash-alt delete-article-icon"></i>
+                    <i  @click="deleteArticle"  class="fas fa-trash-alt delete-article-icon" title="Delete your post"></i>
                     <router-link style="text-decoration: none; color: inherit" :to="'/articles/edit/'+ article.id"><i class="fas fa-edit edit-article-icon"></i></router-link>
                     <li class="like font-size-22"><i class="far fa-comment-alt margin-right-comment"> </i><i class="far fa-heart"></i>0</li>
                 </div>
@@ -51,8 +54,8 @@
                         <p class="input-comment">{{com.content}}</p>                                  
                     </div>
                     <div>
-                      <input v-model="content" placeholder="Edit your comment" class="input-comment" type="text">            
-                      <span @click="updateComment (com.id, com.content)"><i class="fas fa-edit margin-right-off"></i></span>
+                      <!-- <input placeholder="Edit your comment" class="input-comment" type="text">            
+                      <span @click="updateComment(com.id, com.content) "><i class="fas fa-edit margin-right-off"></i></span> -->
                       <span id="hover-login" @click="deleteComment(com.id)"><i class="fas fa-trash-alt margin-right-off"></i></span>
                     </div>
                 </div>                      
@@ -79,7 +82,8 @@ Vue.use(VueAxios, axios)
             return {
                 article: null,
                 comment: [],
-                content: ""
+                content: "",
+                User: ""
             }
         },
         mounted()
@@ -91,8 +95,7 @@ Vue.use(VueAxios, axios)
             Vue.axios.get(`http://localhost:3000/api/articles/`+ this.$route.params.id)
             .then((data) => {
                 this.article = data.data
-                console.log( "article" )
-                console.log( this.article )
+                
             })
             Vue.axios.get('http://localhost:3000/api/articles/' + this.$route.params.id + '/comments/')
             .then((data) => {
@@ -123,11 +126,11 @@ Vue.use(VueAxios, axios)
                 })
                 .then((data) => {
                     console.log(data)
-                    console.log('this.content')
                     console.log(this.content)
                 })
             },
             deleteArticle: function() {
+                
                 Vue.axios.delete('http://localhost:3000/api/articles/' + this.$route.params.id)
                 .then((data) => {
                     this.article.id
@@ -136,6 +139,9 @@ Vue.use(VueAxios, axios)
 
                     if(this.article.id) {
                         window.location.href=`/articles`;
+                    }
+                    else {
+                        alert('Only the creator of the post can delete post')
                     }
                 })
             },
@@ -154,7 +160,7 @@ Vue.use(VueAxios, axios)
             logoutUser: function() { 
                 localStorage.removeItem('userToken');
                 localStorage.removeItem('userId');
-                delete axios.defaults.headers.common['Authorization'];
+                delete axios.defaults.headers['Authorization'];
             }
         }
     }
