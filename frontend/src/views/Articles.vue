@@ -1,5 +1,13 @@
 <template>
     <div class="container">
+        <div class="loader">
+    <div class="loader__food">
+        <img src= "../assets/images/icon-left-font-monochrome-black.png" alt="Loading logo">
+    
+    </div>
+   
+</div>
+
         <div class="navbar">
             <div>
                 <router-link to="/articles"><img src="../assets/images/icon-left-font-monochrome-black.png" alt="groupomania" class="logo"></router-link>
@@ -18,7 +26,7 @@
                 
             </div>
         </div>
-        
+
         <div v-if="user" class="welcome-user">
                     <p>Welcome back {{user.fullname}}!!</p>
                 </div>
