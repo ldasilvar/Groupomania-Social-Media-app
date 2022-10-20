@@ -25,8 +25,9 @@
  }
  .hover-login{
     position: relative;
-    top: 5px;
+    top: 4px;
     margin-left: -10%;
+    padding: 3px;
     
  }
 
@@ -58,15 +59,13 @@
 #content{
     width:86%;
 }
-// .button{
-//     margin-left: 73%;
-// }
+
 
 .card-login form{
     margin-top: 5%;
 }
 .card .cards{
-    margin-top: 80px;
+    margin-top: 28px;
 }
 .welcome-user{
     border-top: 2px solid #E5E5E5;
@@ -75,7 +74,9 @@
 
   @media only screen and (max-width: 500px) {
   
-
+.navbar .logo{
+    margin-left: 26%;
+}
     .card-display-article {
         height: 380px;
         margin: 9% 0% 25%;
@@ -128,6 +129,9 @@
  .avatar{
 
     right:340%;
+ }
+ .bold-title{
+    margin-left: 33%;
  }
   }
   @media only screen and (max-width: 320px){

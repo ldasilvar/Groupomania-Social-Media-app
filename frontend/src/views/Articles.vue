@@ -110,7 +110,7 @@ Vue.use(VueAxios, axios)
             Vue.axios.get(`http://localhost:3000/api/auth/users/myprofile`)
             .then((data) => {
                 this.user = data.data
-                console.log(data);
+                
             })
 
 

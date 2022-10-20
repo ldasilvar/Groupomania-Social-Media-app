@@ -68,6 +68,7 @@ Vue.use(VueAxios, axios)
                   if(response) {
                       alert('Login Succesful');
                   }
+                  
 
                   if(token != null) {
                       localStorage.setItem('userToken', token);
@@ -76,7 +77,23 @@ Vue.use(VueAxios, axios)
                   } else {
                       window.location.href=`/`;
                   }
+                  
               })
+              .catch(error => {
+                    switch(error.response.status) {
+                        case 400:
+                            alert ("The password you entered is incorrect");
+                            break;
+                        case 500:
+                            alert("User doesn't exist");
+        
+                            break;
+                        default:
+                            alert ("An issue has occured");
+                            break;
+                    }
+                })
+              
           },
           logoutUser: function() {
               localStorage.removeItem('userToken');

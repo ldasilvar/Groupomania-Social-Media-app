@@ -54,8 +54,7 @@
                         <p class="input-comment">{{com.content}}</p>                                  
                     </div>
                     <div>
-                      <!-- <input placeholder="Edit your comment" class="input-comment" type="text">            
-                      <span @click="updateComment(com.id, com.content) "><i class="fas fa-edit margin-right-off"></i></span> -->
+                      
                       <span id="hover-login" @click="deleteComment(com.id)"><i class="fas fa-trash-alt margin-right-off"></i></span>
                     </div>
                 </div>                      
@@ -107,13 +106,20 @@ Vue.use(VueAxios, axios)
                 Vue.axios.delete('http://localhost:3000/api/comments/' + commentId)
                 .then((data) => {
                     this.comment = data.data;
-                    // if(error){
-                    //     alert('Not allowed to delete comment');
-                    // }
-
+                    
+                    
                     if(data) {
+                        alert('Your comment has been deleted');
                         window.location.href=`/articles/${this.$route.params.id}`
                     }
+                    
+                })
+                .catch(error => {
+                    switch(error.response.status) {
+                        case 500:
+                            alert("Only the user who posted this can delete this post");
+                            break;
+                        }
                 })
             },
             updateComment: function(commentId, commentContent) {
@@ -139,10 +145,16 @@ Vue.use(VueAxios, axios)
 
                     if(this.article.id) {
                         window.location.href=`/articles`;
+                        alert('Your post has been deleted');
                     }
-                    else {
-                        alert('Only the creator of the post can delete post')
-                    }
+                   
+                })
+                .catch(error => {
+                    switch(error.response.status) {
+                        case 500:
+                            alert("Only the user who posted this can delete this post");
+                            break;
+                        }
                 })
             },
             addComment: function() {

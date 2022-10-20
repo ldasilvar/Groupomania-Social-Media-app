@@ -90,7 +90,7 @@
                     
                 })
                 .then((data) => {
-                    // console.log(data)
+                    
                     console.log('this.user.fullname, this.user.fullname')
                     console.log(this.user.fullname, this.user.fullname)
 

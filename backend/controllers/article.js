@@ -100,10 +100,6 @@ const createArticleNoImg = async (req, res) => {
        
         
 
-        // if(title == null || content == null) {
-        //     return res.status(400).json({'error': 'missing parameters'});
-        // }
-
         const user = await User.findOne({
             where: { id: userId }
         });
@@ -188,7 +184,7 @@ const deleteArticle = async (req, res) => {
         
         )}
    } catch(error) {
-        return res.status(500).send(error.message);
+    return res.status(500).json({ error: error.message }) 
     }
 };
 

@@ -19,7 +19,7 @@ exports.signup = async (req, res) => {
     const post = req.body.post;
     const description = req.body.description;
 
-console.log(req.body)
+
     try {
         if (email == null || fullname == null || password == null) {
             return res.status(400).json({ 'error': 'missing parameters' });
@@ -27,8 +27,8 @@ console.log(req.body)
         
         // conditions signup
 
-        if(fullname > 13 || fullname < 3) {
-            return res.status(400).json({ 'error': 'Your name must be between 3 and 13 characters'});
+        if(fullname > 26 || fullname < 3) {
+            return res.status(400).json({ 'error': 'Your name must be between 3 and 26 characters'});
         }
 
 
@@ -94,7 +94,7 @@ exports.login = async (req, res) => {
                     'isAdmin': user.isAdmin
                 });
             } else {
-                return res.status(500).json({ 'error': 'invalid password'});
+                return res.status(400).json({ 'error': 'invalid password'});
             }
         } else {
             return res.status(500).json({ 'error': 'user does not exist' });
@@ -127,12 +127,10 @@ exports.userDelete = async (req, res) => {
     try {
         const userId = jwtUtils.getUserId(req.headers.authorization);
         const user = await User.findOne({ where: { id: userId }});
-        // const Article = await Article.findOne({ where: { id: req.params.id }});
+        
 
             if(user) {
-                // Article.destroy({
-                //     where: { id: userId }
-                // })
+                
                 User.destroy({
                     where: { id: userId }
                 })

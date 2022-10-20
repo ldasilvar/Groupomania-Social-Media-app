@@ -110,8 +110,8 @@ Vue.use(VueAxios, axios)
 
                 if(!this.fullname) {
                     this.errors.push('Please enter your Full Name')
-                } else if (this.fullname.length > 13 || this.fullname.length < 3) {
-                    this.errors.push('The  name must contain a minimum of 3 letters and a maximum of 13 letters')
+                } else if (this.fullname.length > 26 || this.fullname.length < 3) {
+                    this.errors.push('The  name must contain a minimum of 3 letters and a maximum of 26 letters')
                 } else if (!this.validfullname(this.fullname)) {
                     this.errors.push('Name must be valid')
                 }

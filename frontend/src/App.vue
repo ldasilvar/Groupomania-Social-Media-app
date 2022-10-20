@@ -41,7 +41,7 @@ bottom: 0px;
 left: 0px; 
 text-align: center; 
  position:relative;
- margin-top: auto;
+ 
  
 }
 

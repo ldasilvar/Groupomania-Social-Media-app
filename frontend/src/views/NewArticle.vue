@@ -61,9 +61,7 @@ Vue.use(VueAxios, axios)
                 formData.append("image", this.image);
                 formData.append("title", this.title);
                 formData.append("content", this.content);
-                // console.log(formData.get("content"));
-                // console.log(formData.get("image"));
-                // console.log(formData.get("title"));
+                
 
                 Vue.axios.defaults.headers = {
                     'Content-Type' : 'multipart/form-data',
@@ -73,7 +71,9 @@ Vue.use(VueAxios, axios)
                 Vue.axios.post('http://localhost:3000/api/articles/new', formData)
                 .then((response) => {
                     if(response) {
+                        alert('Your post has been succesful');
                         window.location.href=`/articles`;
+                        
                     }
                 })
             },
@@ -84,7 +84,7 @@ Vue.use(VueAxios, axios)
             },
             selectedImageFile: function(e) {
                 this.image = e.target.files[0];
-                // console.log(this.image);
+                
             }
         }
     }
